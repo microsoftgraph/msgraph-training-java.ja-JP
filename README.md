@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 9b54a56ae0a6d97e1553f34449b36fe5ddccd318
-ms.sourcegitcommit: 24c4290a6d28db5c5bde873d01f49b9de0c8eedb
+ms.openlocfilehash: cb52949a177640cd537cc6f8dffff02ea074fb36
+ms.sourcegitcommit: 189f87d879c57b11992e7bc75580b4c69e014122
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "37045859"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "43612027"
 ---
 # <a name="microsoft-graph-training-module---build-java-apps-with-the-microsoft-graph-java-sdk"></a>Microsoft Graph トレーニングモジュール-Microsoft Graph Java SDK を使用した Java アプリのビルド
 
@@ -16,19 +16,11 @@ ms.locfileid: "37045859"
 
 - [Java Microsoft Graph のチュートリアル](https://docs.microsoft.com/graph/tutorials/java)
 
-## <a name="demos"></a>デモ
-
-このリポジトリの[デモ](./demos)ディレクトリには、チュートリアルの個々のセクションの完成に対応するプロジェクトのコピーが格納されています。 チュートリアルの特定のセクションをデモするだけの場合は、前のセクションのバージョンから始めることができます。
-
-- [01-アプリ](demos/01-create-app): 完成した[Java コンソールアプリの作成](https://docs.microsoft.com/graph/tutorials/java?tutorial-step=1)
-- [02-aad](demos/02-add-aad-auth)-認証: 完了した[Azure AD 認証の追加](https://docs.microsoft.com/graph/tutorials/java?tutorial-step=3)
-- [03-msgraph](demos/03-add-msgraph): 完了[予定表データの取得](https://docs.microsoft.com/graph/tutorials/java?tutorial-step=4)
-
 ## <a name="completed-sample"></a>完成したサンプル
 
 このラボをフォローすることで完成したサンプルを生成する場合は、ここで見つけることができます。
 
-- [完了したプロジェクト](demos/03-add-msgraph)
+- [完了したプロジェクト](demo)
 
 ## <a name="disclaimer"></a>免責事項
 

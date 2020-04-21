@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 4e62f08217ab00427218cd1815d66d80fd2802de
-ms.sourcegitcommit: 2af94da662c454e765b32edeb9406812e3732406
+ms.openlocfilehash: c21adae303c65e52ec2402c56e174066f879f40b
+ms.sourcegitcommit: 189f87d879c57b11992e7bc75580b4c69e014122
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2019
-ms.locfileid: "40018836"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "43612087"
 ---
 <!-- markdownlint-disable MD002 MD041 -->
 
@@ -20,18 +20,14 @@ ms.locfileid: "40018836"
 
     - `Java Graph Tutorial` に **[名前]** を設定します。
     - **[サポートされているアカウントの種類]** を **[任意の組織のディレクトリ内のアカウントと個人用の Microsoft アカウント]** に設定します。
-    - **[リダイレクト URI]** を空のままにします。
+    - [**リダイレクト URI**] で、ドロップダウンを [**パブリッククライアント (モバイル & デスクトップ)**] に変更し`https://login.microsoftonline.com/common/oauth2/nativeclient`、値をに設定します。
 
-    ![[アプリケーションの登録] ページのスクリーンショット](./images/aad-register-an-app.png)
+    ![[アプリケーションを登録する] ページのスクリーンショット](./images/aad-register-an-app.png)
 
 1. **[登録]** を選択します。 [ **Java Graph のチュートリアル**] ページで、**アプリケーション (クライアント) ID**の値をコピーして保存します。次の手順で必要になります。
 
-    ![新しいアプリの登録のアプリケーション ID のスクリーンショット](./images/aad-application-id.png)
+    ![新しいアプリ登録のアプリケーション ID のスクリーンショット](./images/aad-application-id.png)
 
-1. [**リダイレクト URI を追加する**] リンクを選択します。 [**リダイレクト uri** ] ページで、[**パブリッククライアント (モバイル、デスクトップ)] セクションの推奨されるリダイレクト uri**を見つけます。 `https://login.microsoftonline.com/common/oauth2/nativeclient` URI を選択します。
-
-    ![リダイレクト Uri ページのスクリーンショット](./images/aad-redirect-uris.png)
-
-1. [**既定のクライアントの種類**] セクションを探し、[アプリケーションを**パブリッククライアントとして扱う**] を [**はい**] に変更して、[**保存**] を選択します。
+1. **[管理]** の下の **[認証]** を選択します。 [**詳細設定**] セクションを探し、 **[アプリケーションをパブリッククライアントとして扱う**] を [**はい**] に変更して、[**保存**] を選択します。
 
     ![[既定のクライアントの種類] セクションのスクリーンショット](./images/aad-default-client-type.png)
