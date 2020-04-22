@@ -1,115 +1,103 @@
 ---
-ms.openlocfilehash: 298c78d0626e16899de402b3e9b537c8b8386886
-ms.sourcegitcommit: 2af94da662c454e765b32edeb9406812e3732406
+ms.openlocfilehash: 381e4166f07e1dbc51c072645f17002e43f6cc16
+ms.sourcegitcommit: 189f87d879c57b11992e7bc75580b4c69e014122
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2019
-ms.locfileid: "40018830"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "43612020"
 ---
 <!-- markdownlint-disable MD002 MD041 -->
 
-<span data-ttu-id="88cb5-101">プロジェクトを作成するディレクトリで、コマンドラインインターフェイス (CLI) を開きます。</span><span class="sxs-lookup"><span data-stu-id="88cb5-101">Open your command-line interface (CLI) in a directory where you want to create the project.</span></span> <span data-ttu-id="88cb5-102">次のコマンドを実行して、新しい Maven プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="88cb5-102">Run the following command to create a new Maven project.</span></span>
+<span data-ttu-id="b5085-101">このセクションでは、基本的な Java コンソールアプリを作成します。</span><span class="sxs-lookup"><span data-stu-id="b5085-101">In this section you'll create a basic Java console app.</span></span>
 
-```Shell
-mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=com.contoso -DartifactId=graphtutorial -Dversion=1.0-SNAPSHOT
-```
+1. <span data-ttu-id="b5085-102">プロジェクトを作成するディレクトリで、コマンドラインインターフェイス (CLI) を開きます。</span><span class="sxs-lookup"><span data-stu-id="b5085-102">Open your command-line interface (CLI) in a directory where you want to create the project.</span></span> <span data-ttu-id="b5085-103">次のコマンドを実行して、新しい Gradle プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="b5085-103">Run the following command to create a new Gradle project.</span></span>
 
-> [!IMPORTANT]
-> <span data-ttu-id="88cb5-103">上記で指定した値よりも、グループ`DgroupId` ID (パラメーター) と成果`DartifactId`物 ID (パラメーター) に異なる値を入力できます。</span><span class="sxs-lookup"><span data-stu-id="88cb5-103">You can enter different values for the group ID (`DgroupId` parameter) and artifact ID (`DartifactId` parameter) than the values specified above.</span></span> <span data-ttu-id="88cb5-104">このチュートリアルのサンプルコードは、グループ ID `com.contoso`が使用されていることを前提としています。</span><span class="sxs-lookup"><span data-stu-id="88cb5-104">The sample code in this tutorial assumes that the group ID `com.contoso` was used.</span></span> <span data-ttu-id="88cb5-105">別の値を使用する場合は、サンプルコード`com.contoso`で必ずグループ ID を置き換えてください。</span><span class="sxs-lookup"><span data-stu-id="88cb5-105">If you use a different value, be sure to replace `com.contoso` in any sample code with your group ID.</span></span>
+    ```Shell
+    gradle init --dsl groovy --test-framework junit --type java-application --project-name graphtutorial --package graphtutorial
+    ```
 
-<span data-ttu-id="88cb5-106">プロンプトが表示されたら、構成を確認し、プロジェクトが作成されるまで待機します。</span><span class="sxs-lookup"><span data-stu-id="88cb5-106">When prompted, confirm the configuration, then wait for the project to be created.</span></span> <span data-ttu-id="88cb5-107">プロジェクトが作成されたら、次のコマンドを実行して、CLI でアプリをパッケージ化して実行し、動作を確認します。</span><span class="sxs-lookup"><span data-stu-id="88cb5-107">Once the project is created, verify that it works by running the following commands to package and run the app in your CLI.</span></span>
+1. <span data-ttu-id="b5085-104">プロジェクトが作成されたら、次のコマンドを実行して、CLI でアプリを実行し、動作を確認します。</span><span class="sxs-lookup"><span data-stu-id="b5085-104">Once the project is created, verify that it works by running the following command to run the app in your CLI.</span></span>
 
-```Shell
-mvn package
-java -cp target/graphtutorial-1.0-SNAPSHOT.jar com.contoso.App
-```
+    ```Shell
+    ./gradlew --console plain run
+    ```
 
-<span data-ttu-id="88cb5-108">動作している場合は、アプリ`Hello World!`が出力されます。</span><span class="sxs-lookup"><span data-stu-id="88cb5-108">If it works, the app should output `Hello World!`.</span></span> <span data-ttu-id="88cb5-109">に進む前に、後で使用する追加の依存関係を追加します。</span><span class="sxs-lookup"><span data-stu-id="88cb5-109">Before moving on, add some additional dependencies that you will use later.</span></span>
+    <span data-ttu-id="b5085-105">動作している場合は、アプリ`Hello World.`が出力されます。</span><span class="sxs-lookup"><span data-stu-id="b5085-105">If it works, the app should output `Hello World.`.</span></span>
 
-- <span data-ttu-id="88cb5-110">ユーザーを認証し、アクセストークンを取得するため[の、Java の Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-java) 。</span><span class="sxs-lookup"><span data-stu-id="88cb5-110">[Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) to authenticate the user and acquire access tokens.</span></span>
-- <span data-ttu-id="88cb5-111">Microsoft graph [SDK For Java を使用](https://github.com/microsoftgraph/msgraph-sdk-java)して、microsoft graph を呼び出すことができます。</span><span class="sxs-lookup"><span data-stu-id="88cb5-111">[Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to make calls to the Microsoft Graph.</span></span>
-- <span data-ttu-id="88cb5-112">[SLF4J NOP Binding](https://mvnrepository.com/artifact/org.slf4j/slf4j-nop)は、msal からのログ出力を抑制します。</span><span class="sxs-lookup"><span data-stu-id="88cb5-112">[SLF4J NOP Binding](https://mvnrepository.com/artifact/org.slf4j/slf4j-nop) to suppress logging from MSAL.</span></span>
+## <a name="install-dependencies"></a><span data-ttu-id="b5085-106">依存関係のインストール</span><span class="sxs-lookup"><span data-stu-id="b5085-106">Install dependencies</span></span>
 
-<span data-ttu-id="88cb5-113">/Graphtutorial/pom.xml を開きます **。**</span><span class="sxs-lookup"><span data-stu-id="88cb5-113">Open **./graphtutorial/pom.xml**.</span></span> <span data-ttu-id="88cb5-114">`<dependencies>`要素内に次のように追加します。</span><span class="sxs-lookup"><span data-stu-id="88cb5-114">Add the following inside the `<dependencies>` element.</span></span>
+<span data-ttu-id="b5085-107">に進む前に、後で使用する追加の依存関係を追加します。</span><span class="sxs-lookup"><span data-stu-id="b5085-107">Before moving on, add some additional dependencies that you will use later.</span></span>
 
-```xml
-<dependency>
-  <groupId>org.slf4j</groupId>
-  <artifactId>slf4j-nop</artifactId>
-  <version>1.8.0-beta4</version>
-</dependency>
+- <span data-ttu-id="b5085-108">ユーザーを認証し、アクセストークンを取得するため[の、Java の Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-java) 。</span><span class="sxs-lookup"><span data-stu-id="b5085-108">[Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) to authenticate the user and acquire access tokens.</span></span>
+- <span data-ttu-id="b5085-109">Microsoft graph [SDK For Java を使用](https://github.com/microsoftgraph/msgraph-sdk-java)して、microsoft graph を呼び出すことができます。</span><span class="sxs-lookup"><span data-stu-id="b5085-109">[Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to make calls to the Microsoft Graph.</span></span>
+- <span data-ttu-id="b5085-110">[SLF4J NOP Binding](https://mvnrepository.com/artifact/org.slf4j/slf4j-nop)は、msal からのログ出力を抑制します。</span><span class="sxs-lookup"><span data-stu-id="b5085-110">[SLF4J NOP Binding](https://mvnrepository.com/artifact/org.slf4j/slf4j-nop) to suppress logging from MSAL.</span></span>
 
-<dependency>
-  <groupId>com.microsoft.graph</groupId>
-  <artifactId>microsoft-graph</artifactId>
-  <version>1.6.0</version>
-</dependency>
+1. <span data-ttu-id="b5085-111">/Build.gradle を開きます **。**</span><span class="sxs-lookup"><span data-stu-id="b5085-111">Open **./build.gradle**.</span></span> <span data-ttu-id="b5085-112">セクションを`dependencies`更新して、それらの依存関係を追加します。</span><span class="sxs-lookup"><span data-stu-id="b5085-112">Update the `dependencies` section to add those dependencies.</span></span>
 
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>msal4j</artifactId>
-  <version>1.1.0</version>
-</dependency>
-```
+    :::code language="gradle" source="../demo/graphtutorial/build.gradle" id="DependenciesSnippet" highlight="7-9":::
 
-<span data-ttu-id="88cb5-115">次回プロジェクトを構築したときに、Maven はそれらの依存関係をダウンロードします。</span><span class="sxs-lookup"><span data-stu-id="88cb5-115">The next time you build the project, Maven will download those dependencies.</span></span>
+1. <span data-ttu-id="b5085-113">以下を **/build.gradle**の末尾に追加します。</span><span class="sxs-lookup"><span data-stu-id="b5085-113">Add the following to the end of **./build.gradle**.</span></span>
 
-## <a name="design-the-app"></a><span data-ttu-id="88cb5-116">アプリを設計する</span><span class="sxs-lookup"><span data-stu-id="88cb5-116">Design the app</span></span>
+    :::code language="gradle" source="../demo/graphtutorial/build.gradle" id="StandardInputSnippet":::
 
-<span data-ttu-id="88cb5-117">**./Graphtutorial/src/main/java/com/contoso/App.java**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="88cb5-117">Open the **./graphtutorial/src/main/java/com/contoso/App.java** file and replace its contents with the following.</span></span>
+<span data-ttu-id="b5085-114">次回プロジェクトをビルドするときに、Gradle はそれらの依存関係をダウンロードします。</span><span class="sxs-lookup"><span data-stu-id="b5085-114">The next time you build the project, Gradle will download those dependencies.</span></span>
 
-```java
-package com.contoso;
+## <a name="design-the-app"></a><span data-ttu-id="b5085-115">アプリを設計する</span><span class="sxs-lookup"><span data-stu-id="b5085-115">Design the app</span></span>
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+1. <span data-ttu-id="b5085-116">**./Src/main/java/graphtutorial/App.java**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="b5085-116">Open the **./src/main/java/graphtutorial/App.java** file and replace its contents with the following.</span></span>
 
-/**
- * Graph Tutorial
- *
- */
-public class App {
-    public static void main(String[] args) {
-        System.out.println("Java Graph Tutorial");
-        System.out.println();
+    ```java
+    package graphtutorial;
 
-        Scanner input = new Scanner(System.in);
+    import java.util.InputMismatchException;
+    import java.util.Scanner;
 
-        int choice = -1;
+    /**
+     * Graph Tutorial
+     *
+     */
+    public class App {
+        public static void main(String[] args) {
+            System.out.println("Java Graph Tutorial");
+            System.out.println();
 
-        while (choice != 0) {
-            System.out.println("Please choose one of the following options:");
-            System.out.println("0. Exit");
-            System.out.println("1. Display access token");
-            System.out.println("2. List calendar events");
+            Scanner input = new Scanner(System.in);
 
-            try {
-                choice = input.nextInt();
-            } catch (InputMismatchException ex) {
-                // Skip over non-integer input
-                input.nextLine();
+            int choice = -1;
+
+            while (choice != 0) {
+                System.out.println("Please choose one of the following options:");
+                System.out.println("0. Exit");
+                System.out.println("1. Display access token");
+                System.out.println("2. List calendar events");
+
+                try {
+                    choice = input.nextInt();
+                } catch (InputMismatchException ex) {
+                    // Skip over non-integer input
+                    input.nextLine();
+                }
+
+                // Process user choice
+                switch(choice) {
+                    case 0:
+                        // Exit the program
+                        System.out.println("Goodbye...");
+                        break;
+                    case 1:
+                        // Display access token
+                        break;
+                    case 2:
+                        // List the calendar
+                        break;
+                    default:
+                        System.out.println("Invalid choice");
+                }
             }
 
-            // Process user choice
-            switch(choice) {
-                case 0:
-                    // Exit the program
-                    System.out.println("Goodbye...");
-                    break;
-                case 1:
-                    // Display access token
-                    break;
-                case 2:
-                    // List the calendar
-                    break;
-                default:
-                    System.out.println("Invalid choice");
-            }
+            input.close();
         }
-
-        input.close();
     }
-}
-```
+    ```
 
-<span data-ttu-id="88cb5-118">これは基本的なメニューを実装し、コマンドラインからユーザーの選択を読み取ります。</span><span class="sxs-lookup"><span data-stu-id="88cb5-118">This implements a basic menu and reads the user's choice from the command line.</span></span>
+    <span data-ttu-id="b5085-117">これは基本的なメニューを実装し、コマンドラインからユーザーの選択を読み取ります。</span><span class="sxs-lookup"><span data-stu-id="b5085-117">This implements a basic menu and reads the user's choice from the command line.</span></span>
