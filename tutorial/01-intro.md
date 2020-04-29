@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: f77f0518aa22d015cf5e915886f8f24a487e7bab
-ms.sourcegitcommit: 189f87d879c57b11992e7bc75580b4c69e014122
+ms.openlocfilehash: f13ee9baa26bb487d5b50bd966e40cee9ba64378
+ms.sourcegitcommit: 22ec2c0e4803b82c9d360f3609f8b15ba5d017ca
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "43612076"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "43940477"
 ---
 <!-- markdownlint-disable MD002 MD041 -->
 
@@ -15,7 +15,7 @@ ms.locfileid: "43612076"
 
 ## <a name="prerequisites"></a>前提条件
 
-このチュートリアルを開始する前に、開発用コンピューターに[JAVA SE 開発キット (JDK)](https://java.com/en/download/faq/develop.xml)と[Gradle](https://gradle.org/)がインストールされている必要があります。 JDK または Maven を持っていない場合は、「ダウンロードオプション」の前のリンクにアクセスしてください。
+このチュートリアルを開始する前に、開発用コンピューターに[JAVA SE 開発キット (JDK)](https://java.com/en/download/faq/develop.xml)と[Gradle](https://gradle.org/)がインストールされている必要があります。 JDK または Gradle を使用していない場合は、「ダウンロードオプション」の前のリンクにアクセスしてください。
 
 また、Outlook.com 上のメールボックスを持つ個人の Microsoft アカウント、または Microsoft 職場または学校のアカウントを所有している必要があります。 Microsoft アカウントを持っていない場合は、無料のアカウントを取得するためのオプションがいくつかあります。
 
