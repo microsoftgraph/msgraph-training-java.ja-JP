@@ -1,50 +1,50 @@
 ---
-ms.openlocfilehash: 381e4166f07e1dbc51c072645f17002e43f6cc16
-ms.sourcegitcommit: 189f87d879c57b11992e7bc75580b4c69e014122
+ms.openlocfilehash: 72936993d940cdfb86c864a6ffc543ed466127d1
+ms.sourcegitcommit: eb935a250f8531b04a42710356072b80d46ee3a4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "43612020"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "49661082"
 ---
 <!-- markdownlint-disable MD002 MD041 -->
 
-このセクションでは、基本的な Java コンソールアプリを作成します。
+このセクションでは、基本的なコンソール アプリJava作成します。
 
-1. プロジェクトを作成するディレクトリで、コマンドラインインターフェイス (CLI) を開きます。 次のコマンドを実行して、新しい Gradle プロジェクトを作成します。
+1. プロジェクトを作成するディレクトリでコマンド ライン インターフェイス (CLI) を開きます。 次のコマンドを実行して、新しい Gradle プロジェクトを作成します。
 
     ```Shell
     gradle init --dsl groovy --test-framework junit --type java-application --project-name graphtutorial --package graphtutorial
     ```
 
-1. プロジェクトが作成されたら、次のコマンドを実行して、CLI でアプリを実行し、動作を確認します。
+1. プロジェクトが作成された後、次のコマンドを実行して CLI でアプリを実行して、プロジェクトが動作を確認します。
 
     ```Shell
     ./gradlew --console plain run
     ```
 
-    動作している場合は、アプリ`Hello World.`が出力されます。
+    動作する場合、アプリは出力する必要があります `Hello World.` 。
 
-## <a name="install-dependencies"></a>依存関係のインストール
+## <a name="install-dependencies"></a>依存関係をインストールする
 
-に進む前に、後で使用する追加の依存関係を追加します。
+次に進む前に、後で使用する依存関係を追加します。
 
-- ユーザーを認証し、アクセストークンを取得するため[の、Java の Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-java) 。
-- Microsoft graph [SDK For Java を使用](https://github.com/microsoftgraph/msgraph-sdk-java)して、microsoft graph を呼び出すことができます。
-- [SLF4J NOP Binding](https://mvnrepository.com/artifact/org.slf4j/slf4j-nop)は、msal からのログ出力を抑制します。
+- [ユーザーを認証し、アクセス トークンJava](https://github.com/AzureAD/microsoft-authentication-library-for-java) 取得するための Microsoft 認証ライブラリ (MSAL)。
+- [Microsoft Graph SDK for](https://github.com/microsoftgraph/msgraph-sdk-java) Java Microsoft Graph の呼び出しを行います。
+- [MSAL からのログ記録を抑制する SLF4J NOP](https://mvnrepository.com/artifact/org.slf4j/slf4j-nop) バインド。
 
-1. /Build.gradle を開きます **。** セクションを`dependencies`更新して、それらの依存関係を追加します。
+1. **./build.gradle を開きます**。 セクションを `dependencies` 更新して、これらの依存関係を追加します。
 
     :::code language="gradle" source="../demo/graphtutorial/build.gradle" id="DependenciesSnippet" highlight="7-9":::
 
-1. 以下を **/build.gradle**の末尾に追加します。
+1. **./build.gradle の末尾に次を追加します**。
 
     :::code language="gradle" source="../demo/graphtutorial/build.gradle" id="StandardInputSnippet":::
 
-次回プロジェクトをビルドするときに、Gradle はそれらの依存関係をダウンロードします。
+次にプロジェクトをビルドすると、Gradle はそれらの依存関係をダウンロードします。
 
 ## <a name="design-the-app"></a>アプリを設計する
 
-1. **./Src/main/java/graphtutorial/App.java**ファイルを開き、その内容を次のように置き換えます。
+1. **./src/main/java/graphtutorial/App.java** ファイルを開き、その内容を次のように置き換えてください。
 
     ```java
     package graphtutorial;
@@ -69,14 +69,16 @@ ms.locfileid: "43612020"
                 System.out.println("Please choose one of the following options:");
                 System.out.println("0. Exit");
                 System.out.println("1. Display access token");
-                System.out.println("2. List calendar events");
+                System.out.println("2. View this week's calendar");
+                System.out.println("3. Add an event");
 
                 try {
                     choice = input.nextInt();
                 } catch (InputMismatchException ex) {
                     // Skip over non-integer input
-                    input.nextLine();
                 }
+
+                input.nextLine();
 
                 // Process user choice
                 switch(choice) {
@@ -90,6 +92,9 @@ ms.locfileid: "43612020"
                     case 2:
                         // List the calendar
                         break;
+                    case 3:
+                        // Create a new event
+                        break;
                     default:
                         System.out.println("Invalid choice");
                 }
@@ -100,4 +105,4 @@ ms.locfileid: "43612020"
     }
     ```
 
-    これは基本的なメニューを実装し、コマンドラインからユーザーの選択を読み取ります。
+    これにより、基本的なメニューが実装され、コマンド ラインからユーザーの選択が読み取ります。
