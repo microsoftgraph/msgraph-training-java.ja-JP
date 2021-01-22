@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c26e5b8ab0b7c5c62b926e3f5416b94e3f10b601
-ms.sourcegitcommit: eb935a250f8531b04a42710356072b80d46ee3a4
+ms.openlocfilehash: 16e96edc78ed2f6955bc14654edba1cb26323648
+ms.sourcegitcommit: 2c0e0d2d6de994022dfa0faa10131582fb10e9b1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "49661047"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "49919530"
 ---
 <!-- markdownlint-disable MD002 MD041 -->
 
@@ -12,9 +12,9 @@ ms.locfileid: "49661047"
 
 ## <a name="implement-an-authentication-provider"></a>認証プロバイダーを実装する
 
-Microsoft Graph SDK for Javaオブジェクトをインスタンス化するには、インターフェイスの `IAuthenticationProvider` 実装が必要 `GraphServiceClient` です。
+Microsoft Graph SDK for Javaオブジェクトをインスタンス化するには、インターフェイス `IAuthenticationProvider` の実装が必要 `GraphServiceClient` です。
 
-1. **SimpleAuthProvider.java** **という名前の ./graphtutorial/src/main/java/graphtutututul** ディレクトリに新しいファイルを作成し、次のコードを追加します。
+1. **SimpleAuthProvider.java** **という名前の ./graphtu thel/src/main/java/graphtutul** ディレクトリに新しいファイルを作成し、次のコードを追加します。
 
     :::code language="java" source="../demo/graphtutorial/src/main/java/graphtutorial/SimpleAuthProvider.java" id="AuthProviderSnippet":::
 
@@ -96,7 +96,7 @@ Microsoft Graph SDK for Javaオブジェクトをインスタンス化するに�
     import com.microsoft.graph.models.extensions.User;
     ```
 
-1. 行の直前に **App.java に** 次のコードを追加して、ユーザーを取得し、ユーザーの表示 `Scanner input = new Scanner(System.in);` 名を出力します。
+1. 次のコードを **App.java 行** の直前に追加して、ユーザーを取得し、ユーザーの表示 `Scanner input = new Scanner(System.in);` 名を出力します。
 
     ```java
     // Greet the user
@@ -110,7 +110,7 @@ Microsoft Graph SDK for Javaオブジェクトをインスタンス化するに�
 
 ## <a name="get-calendar-events-from-outlook"></a>Outlook からカレンダー イベントを取得する
 
-1. Graph.java のクラスに次の関数を追加して、ユーザーの予定表からイベント `Graph` を取得します。 
+1. Graph.java のクラスに次 `Graph` の関数を **追加** して、ユーザーの予定表からイベントを取得します。
 
     :::code language="java" source="../demo/graphtutorial/src/main/java/graphtutorial/Graph.java" id="GetEventsSnippet":::
 
@@ -124,7 +124,7 @@ Microsoft Graph SDK for Javaオブジェクトをインスタンス化するに�
   - この `top` 関数は、応答内のイベント数を最大 25 に制限します。
 - この関数は、現在の週に 25 を超えるイベントがある場合に結果の追加ページ `getNextPage` を要求するために使用されます。
 
-1. **GraphToIana.java** **という名前の ./graphtu graphl/src/main/java/graphtuianal** ディレクトリに新しいファイルを作成し、次のコードを追加します。
+1. **GraphToIana.java** **という名前の ./graphtu graphl/src/main/java/graphtutul ディレクトリ** に新しいファイルを作成し、次のコードを追加します。
 
     :::code language="java" source="../demo/graphtutorial/src/main/java/graphtutorial/GraphToIana.java" id="zoneMappingsSnippet":::
 
@@ -154,14 +154,14 @@ Microsoft Graph SDK for Javaオブジェクトをインスタンス化するに�
 
     :::code language="java" source="../demo/graphtutorial/src/main/java/graphtutorial/App.java" id="FormatDateSnippet":::
 
-1. 次の関数をクラスに追加して、ユーザーのイベントを取得し `App` 、コンソールに出力します。
+1. 次の関数をクラスに追加して、ユーザーのイベントを取得し、コンソール `App` に出力します。
 
     :::code language="java" source="../demo/graphtutorial/src/main/java/graphtutorial/App.java" id="ListEventsSnippet":::
 
 1. 関数のコメントの直後に `// List the calendar` 次を追加 `main` します。
 
     ```java
-    listCalendarEvents(accessToken);
+    listCalendarEvents(accessToken, user.mailboxSettings.timeZone);
     ```
 
 1. すべての変更を保存し、アプリをビルドして実行します。 [予定表 **イベントの一覧表示]** オプションを選択して、ユーザーのイベントの一覧を表示します。
